@@ -687,30 +687,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Visar\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\Mehdi\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Visar\\source\\repos\\SK.StudentTranscript\\SK.StudentTranscript\\SK.StudentTranscript.csproj",
+      "projectUniqueName": "C:\\Users\\Mehdi\\Desktop\\c#\\ECS-503-SK\\Week II\\SK.StudentTranscript\\SK.StudentTranscript\\SK.StudentTranscript.csproj",
       "projectName": "SK.StudentTranscript",
-      "projectPath": "C:\\Users\\Visar\\source\\repos\\SK.StudentTranscript\\SK.StudentTranscript\\SK.StudentTranscript.csproj",
-      "packagesPath": "C:\\Users\\Visar\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Visar\\source\\repos\\SK.StudentTranscript\\SK.StudentTranscript\\obj\\",
+      "projectPath": "C:\\Users\\Mehdi\\Desktop\\c#\\ECS-503-SK\\Week II\\SK.StudentTranscript\\SK.StudentTranscript\\SK.StudentTranscript.csproj",
+      "packagesPath": "C:\\Users\\Mehdi\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Mehdi\\Desktop\\c#\\ECS-503-SK\\Week II\\SK.StudentTranscript\\SK.StudentTranscript\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
-        "C:\\Users\\Visar\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "C:\\Users\\Mehdi\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {

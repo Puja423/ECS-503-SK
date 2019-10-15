@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Xml;
 
 namespace SK.StudentTranscript
 {
@@ -6,10 +8,14 @@ namespace SK.StudentTranscript
     {
         static void Main(string[] args)
         {
-            string[] courses = new string[20];
-            int[] grades = new int[20];
-            int[] credits = new int[20];
-            int currentIndex = 0;
+            List<string> courses = new List<string>();
+            List<int> grades = new List<int>();
+            List<int> credits = new List<int>();
+            
+            courses.Add("test");
+            grades.Add(1);
+            credits.Add(10);
+            
             while (true)
             {
                 Console.WriteLine("Ju lutem shkruani emrin e lendes, ose shkruani X per te vazhduar!");
@@ -17,16 +23,15 @@ namespace SK.StudentTranscript
                 if (courseName == "X" || courseName == "x")
                     break;
 
-                courses[currentIndex] = courseName;
+                courses.Add(courseName);
 
                 Console.WriteLine("Ju lutem shkruani numrin e kredive per kete lende!");
                 int credit = Convert.ToInt32(Console.ReadLine());
-                credits[currentIndex] = credit;
+                credits.Add(credit);
 
                 Console.WriteLine("Ju lutem shkruani noten per kete lende!");
                 int grade = Convert.ToInt32(Console.ReadLine());
-                grades[currentIndex] = grade;
-                currentIndex++;
+                grades.Add(grade);
             }
             
             Console.WriteLine("        TRANSKRIPTA E STUDENTIT");
@@ -35,7 +40,7 @@ namespace SK.StudentTranscript
             Console.WriteLine("=======================================");
             double shumaKredive = 0;
             double shumaNotave = 0;
-            for (var i = 0; i<currentIndex; i++)
+            for (var i = 0; i<courses.Count; i++)
             {
                 Console.WriteLine(courses[i] + "\t\t" + credits[i] + "\t" + grades[i]);
                 shumaKredive += credits[i];

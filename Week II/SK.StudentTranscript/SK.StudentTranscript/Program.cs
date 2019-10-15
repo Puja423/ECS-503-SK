@@ -25,9 +25,23 @@ namespace SK.StudentTranscript
 
                 courses.Add(courseName);
 
-                Console.WriteLine("Ju lutem shkruani numrin e kredive per kete lende!");
-                int credit = Convert.ToInt32(Console.ReadLine());
-                credits.Add(credit);
+                while (true)
+                {
+                    Console.WriteLine("Ju lutem shkruani numrin e kredive per kete lende!");
+                    int credit;
+                    if (int.TryParse(Console.ReadLine(), out credit) && credit >= 5 && credit <= 10)
+                    {
+                        credits.Add(credit);
+                        break;
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Ju lutemi jepeni nje vlere prej 5-10!");
+                        Console.ForegroundColor = ConsoleColor.Blue;
+                    }
+                }
+
 
                 Console.WriteLine("Ju lutem shkruani noten per kete lende!");
                 int grade = Convert.ToInt32(Console.ReadLine());

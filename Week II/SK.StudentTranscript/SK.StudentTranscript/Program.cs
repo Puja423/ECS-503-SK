@@ -78,6 +78,7 @@ namespace SK.StudentTranscript
             Console.WriteLine("| LENDA \t\t KREDITE \t NOTA");
             Console.WriteLine("=======================================");
             double shumaKredive = 0;
+            double totalKredit = 0;
             double shumaNotave = 0;
             for (var i = 0; i<courses.Count; i++)
             {
@@ -93,8 +94,8 @@ namespace SK.StudentTranscript
                         Console.WriteLine(courses[i] + "\t\t" + credits[i] + "\t" + grades[i] );
                         break;
                 }
-                
-                
+
+                totalKredit += credits[i];
                 if (!(grades[i] >= 3 && grades[i] <= 5))  {
                     shumaKredive += credits[i];
                     shumaNotave += credits[i] * grades[i];
@@ -102,8 +103,11 @@ namespace SK.StudentTranscript
             }
             double gpa = shumaNotave / shumaKredive;
 
-            Console.WriteLine("=======================================");
-            Console.WriteLine("Nota mesatare: " + gpa.ToString("0.00"));
+            Console.WriteLine("=====================================");
+            Console.WriteLine("Credits attempted: " + totalKredit);
+            Console.WriteLine("Credits awarded: " + shumaKredive);
+            Console.WriteLine("Number of courses: " + courses.Count);
+            Console.WriteLine("GPA: " + gpa.ToString("0.00"));
         }
     }
 }

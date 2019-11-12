@@ -13,5 +13,8 @@ namespace Assignment_II.Models
         
         public string PostContent { get; set; }
         public DateTime PostDate { get; set; }
+        
+        [ForeignKey("_Location")]
+        public Location Location { get; set; }
     }
 }

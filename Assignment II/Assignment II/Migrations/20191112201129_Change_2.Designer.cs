@@ -4,14 +4,16 @@ using Assignment_II.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Assignment_II.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    partial class DatabaseContextModelSnapshot : ModelSnapshot
+    [Migration("20191112201129_Change_2")]
+    partial class Change_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -236,23 +238,6 @@ namespace Assignment_II.Migrations
                     b.ToTable("ReactionType");
                 });
 
-            modelBuilder.Entity("Assignment_II.Models.SavedPosts", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int")
-                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<int?>("PostId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("PostId");
-
-                    b.ToTable("SavedPosts");
-                });
-
             modelBuilder.Entity("Assignment_II.Models.Comments", b =>
                 {
                     b.HasOne("Assignment_II.Models.Comments", null)
@@ -310,13 +295,6 @@ namespace Assignment_II.Migrations
                     b.HasOne("Assignment_II.Models.ReactionType", "ReactionType")
                         .WithMany()
                         .HasForeignKey("ReactionTp");
-                });
-
-            modelBuilder.Entity("Assignment_II.Models.SavedPosts", b =>
-                {
-                    b.HasOne("Assignment_II.Models.Post", "Post")
-                        .WithMany()
-                        .HasForeignKey("PostId");
                 });
 #pragma warning restore 612, 618
         }

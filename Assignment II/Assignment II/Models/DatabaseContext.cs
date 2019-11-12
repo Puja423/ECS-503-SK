@@ -1,6 +1,10 @@
 ﻿using System.Data;
 using Microsoft.EntityFrameworkCore;
 
+// Location
+// Pages
+// Saved
+
 namespace Assignment_II.Models
 {
     public class DatabaseContext : DbContext
@@ -11,6 +15,8 @@ namespace Assignment_II.Models
         public DbSet<PostImages> PostImages { get; set; }
         public DbSet<Reaction> Reaction { get; set; }
         public DbSet<ReactionType> ReactionType { get; set; }
+        public DbSet<Location> Location { get; set; }
+        public DbSet<SavedPosts> SavedPosts { get; set; }
         
         protected override void OnConfiguring(DbContextOptionsBuilder options)
         {

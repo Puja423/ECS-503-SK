@@ -1,6 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Assignment_II.Models
 {
@@ -18,6 +22,8 @@ namespace Assignment_II.Models
         public PostImages PostImages { get; set; }
         
         public DateTime ReactionDate { get; set; }
-        public int ReactionType { get; set; }
+        
+        [ForeignKey("ReactionTp")]
+        public ReactionType ReactionType { get; set; }
     }
 }

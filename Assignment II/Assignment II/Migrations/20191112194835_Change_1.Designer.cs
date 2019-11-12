@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Assignment_II.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20191112182842_Change_11")]
-    partial class Change_11
+    [Migration("20191112194835_Change_1")]
+    partial class Change_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -133,6 +133,82 @@ namespace Assignment_II.Migrations
                     b.ToTable("Post");
                 });
 
+            modelBuilder.Entity("Assignment_II.Models.PostImages", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("FileName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<bool>("isPrimary")
+                        .HasColumnType("bit");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("PostImages");
+                });
+
+            modelBuilder.Entity("Assignment_II.Models.Reaction", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<int?>("CommentId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("ImageId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("PostId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("ReactionDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int?>("ReactionTp")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CommentId");
+
+                    b.HasIndex("ImageId");
+
+                    b.HasIndex("PostId");
+
+                    b.HasIndex("ReactionTp");
+
+                    b.ToTable("Reaction");
+                });
+
+            modelBuilder.Entity("Assignment_II.Models.ReactionType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("IconURL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ReactionType");
+                });
+
             modelBuilder.Entity("Assignment_II.Models.Comments", b =>
                 {
                     b.HasOne("Assignment_II.Models.Comments", null)
@@ -160,6 +236,32 @@ namespace Assignment_II.Migrations
                     b.HasOne("Assignment_II.Models.Person", "Person")
                         .WithMany()
                         .HasForeignKey("PersonId");
+                });
+
+            modelBuilder.Entity("Assignment_II.Models.PostImages", b =>
+                {
+                    b.HasOne("Assignment_II.Models.Post", "Post")
+                        .WithMany()
+                        .HasForeignKey("PostId");
+                });
+
+            modelBuilder.Entity("Assignment_II.Models.Reaction", b =>
+                {
+                    b.HasOne("Assignment_II.Models.Comments", "Comments")
+                        .WithMany()
+                        .HasForeignKey("CommentId");
+
+                    b.HasOne("Assignment_II.Models.PostImages", "PostImages")
+                        .WithMany()
+                        .HasForeignKey("ImageId");
+
+                    b.HasOne("Assignment_II.Models.Post", "Post")
+                        .WithMany()
+                        .HasForeignKey("PostId");
+
+                    b.HasOne("Assignment_II.Models.ReactionType", "ReactionType")
+                        .WithMany()
+                        .HasForeignKey("ReactionTp");
                 });
 #pragma warning restore 612, 618
         }

@@ -1,4 +1,6 @@
-﻿namespace Assignment_II.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Assignment_II.Models
 {
     public class ReactionType
     {

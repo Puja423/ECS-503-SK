@@ -173,7 +173,7 @@ namespace Assignment_II.Migrations
                     b.Property<DateTime>("ReactionDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("ReactionType")
+                    b.Property<int?>("ReactionTp")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -184,7 +184,27 @@ namespace Assignment_II.Migrations
 
                     b.HasIndex("PostId");
 
+                    b.HasIndex("ReactionTp");
+
                     b.ToTable("Reaction");
+                });
+
+            modelBuilder.Entity("Assignment_II.Models.ReactionType", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("IconURL")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("TypeName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ReactionType");
                 });
 
             modelBuilder.Entity("Assignment_II.Models.Comments", b =>
@@ -236,6 +256,10 @@ namespace Assignment_II.Migrations
                     b.HasOne("Assignment_II.Models.Post", "Post")
                         .WithMany()
                         .HasForeignKey("PostId");
+
+                    b.HasOne("Assignment_II.Models.ReactionType", "ReactionType")
+                        .WithMany()
+                        .HasForeignKey("ReactionTp");
                 });
 #pragma warning restore 612, 618
         }

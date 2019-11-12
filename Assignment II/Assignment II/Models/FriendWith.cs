@@ -7,7 +7,6 @@ namespace Assignment_II.Models
 {
     public class FriendWith
     {
-        [Required]
         public int Id { get; set; }
         public int FirstPerson { get; set; }
         public int SecondPerson { get; set; }
